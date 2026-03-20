@@ -1,0 +1,28 @@
+let a, b, correct, score = 0;
+
+function newQuestion() {
+  a = Math.floor(Math.random() * 20);
+  b = Math.floor(Math.random() * 20);
+  correct = a * b;
+
+  document.getElementById("question").innerText =
+    a + " × " + b + " = ?";
+  document.getElementById("answer").value = "";
+}
+
+function check() {
+  let user = document.getElementById("answer").value;
+
+  if (user == correct) {
+    score++;
+    document.getElementById("result").innerText =
+      "✅ Correct! Score: " + score;
+    newQuestion();
+  } else {
+    document.getElementById("result").innerText =
+      "❌ Try again!";
+  }
+}
+
+// Start game
+newQuestion();
