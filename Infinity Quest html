@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Infinity Quest</title>
+</head>
+<body>
+
+  <h1>♾️ Infinity Quest</h1>
+  <p id="question"></p>
+
+  <input type="number" id="answer" placeholder="Your answer">
+  <button onclick="check()">Submit</button>
+
+  <p id="result"></p>
+
+  <script>
+    let a = Math.floor(Math.random() * 20);
+    let b = Math.floor(Math.random() * 20);
+    let correct = a * b;
+
+    document.getElementById("question").innerText =
+      a + " × " + b + " = ?";
+
+    function check() {
+      let user = document.getElementById("answer").value;
+      if (user == correct) {
+        document.getElementById("result").innerText = "✅ Correct!";
+        newQuestion();
+      } else {
+        document.getElementById("result").innerText = "❌ Try again!";
+      }
+    }
+
+    function newQuestion() {
+      a = Math.floor(Math.random() * 20);
+      b = Math.floor(Math.random() * 20);
+      correct = a * b;
+      document.getElementById("question").innerText =
+        a + " × " + b + " = ?";
+      document.getElementById("answer").value = "";
+    }
+  </script>
+
+</body>
+</html>
